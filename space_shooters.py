@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Created by: Gustav I
 # Created on: May 28, 2025
-# This is the program for "Space shooters""
+# This is the program for "Space shooters"
 
 import ugame
 import stage
