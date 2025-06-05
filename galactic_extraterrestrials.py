@@ -24,7 +24,7 @@ def game_scene():
     select_button = constants.button_state["button_up"]
 
     # get sound ready
-    pew_sound = open("pew.wav", 'rb')
+    pew_sound = open("pew.wav", "rb")
     sound = ugame.audio
     sound.stop()
     sound.mute(False)
@@ -37,9 +37,12 @@ def game_scene():
         image_bank_sprites, 5, 75, constants.SCREEN_Y - (2 * constants.SPRITE_SIZE)
     )
 
-    alien = stage.Sprite(image_bank_sprites, 9, 
-                         int(constants.SCREEN_X / 2 - constants.SPRIZE_SIZE / 2), 
-                        16)
+    alien = stage.Sprite(
+        image_bank_sprites,
+        9,
+        int(constants.SCREEN_X / 2 - constants.SPRIZE_SIZE / 2),
+        16,
+    )
     # Sets the 77 tiles to the right and 66 tiles down.
 
     game = stage.Stage(ugame.display, 60)
@@ -57,18 +60,18 @@ def game_scene():
         # A button to fire
         if keys & ugame.K_0 != 0:
             if a_button == constants.button_state["button_up"]:
-               a_button = constants.button_state["button_just_pressed"]
+                a_button = constants.button_state["button_just_pressed"]
             elif a_button == constants.button_state["button_just_pressed"]:
-                 a_button = constants.button_state["button_still_pressed"]
+                a_button = constants.button_state["button_still_pressed"]
         else:
-            if     a_button == constants.button_state["button_still_pressed"]:
-                   a_button = constants.button_state["button_released"]
+            if a_button == constants.button_state["button_still_pressed"]:
+                a_button = constants.button_state["button_released"]
             else:
                 a_button = constants.button_state["button_up"]
 
         # B button
         if keys & ugame.K_X != 0:
-           pass
+            pass
         if keys & ugame.K_START != 0:
             print("Start")
         if keys & ugame.K_SELECT != 0:
@@ -76,13 +79,13 @@ def game_scene():
 
         if keys & ugame.K_RIGHT != 0:
             if ship.x < (constants.SCREEN_X - constants.SPRITE_SIZE):
-               ship.move((ship.x + constants.SPRITE_MOVEMENT_SPEED), ship.y)
+                ship.move((ship.x + constants.SPRITE_MOVEMENT_SPEED), ship.y)
         else:
             ship.move((constants.SCREEN_X - constants.SPRITE_SIZE), ship.y)
-        
+
         if keys & ugame.K_LEFT != 0:
             if ship.x > 0:
-               ship.move((ship.x - constants.SPRITE_MOVEMENT_SPEED), ship.y)
+                ship.move((ship.x - constants.SPRITE_MOVEMENT_SPEED), ship.y)
         else:
             ship.move(0, ship.y)
 
@@ -90,7 +93,7 @@ def game_scene():
             pass
         if keys & ugame.K_DOWN != 0:
             pass
-        
+
         # update game logic
         # play sound if A was just button_just_pressed
         if a_button == constants.button_state["button_just_pressed"]:
@@ -99,7 +102,6 @@ def game_scene():
         # redraw sprites
         game.render_sprites([ship] + [alien])
         game.tick()
-       
 
 
 if __name__ == "__main__":
