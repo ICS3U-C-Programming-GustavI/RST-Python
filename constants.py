@@ -3,6 +3,7 @@
 # Created on: July 2020
 # This constants file is for Space Aliens game
 
+
 # PyBadge screen size is 160x128 and sprites are 16x16
 SCREEN_X = 160
 SCREEN_Y = 128
@@ -20,6 +21,7 @@ OFF_TOP_SCREEN = -1 * SPRITE_SIZE
 OFF_BOTTOM_SCREEN = SCREEN_Y + SPRITE_SIZE
 FPS = 60
 SPRITE_MOVEMENT_SPEED = 2
+
 
 # Using for button state
 button_state = {
